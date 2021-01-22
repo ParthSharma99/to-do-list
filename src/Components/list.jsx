@@ -24,6 +24,10 @@ const List = (props) => {
 
   return (
     <div className="list-wrapper">
+      <div className="heading">
+        <h1>To-Do List</h1>
+        <h3>List Count : {list.length}</h3>
+      </div>
       {list.map((text, id) => {
         return (
           <List_item
@@ -36,20 +40,20 @@ const List = (props) => {
         );
       })}
 
-      <div className="add-item-wrapper">
+      <form
+        className="add-item-wrapper"
+        onSubmit={(event) => {
+          event.preventDefault();
+          add_item(inputText);
+          setInputText("");
+        }}
+      >
         <input
           value={inputText}
           onChange={(event) => setInputText(event.target.value)}
         />
-        <button
-          onClick={() => {
-            add_item(inputText);
-            setInputText("");
-          }}
-        >
-          Add Item
-        </button>
-      </div>
+        <input type="submit" className="add-item-button" value="Add Item" />
+      </form>
     </div>
   );
 };

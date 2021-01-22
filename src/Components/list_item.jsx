@@ -16,7 +16,7 @@ const List_item = (props) => {
             onChange={(event) => setInputText(event.target.value)}
           />
           <div className="item-buttons">
-            <div className="item-delete-button">
+            <div className="item-save-button">
               <button
                 onClick={() => {
                   props.edit_item(props.id);
